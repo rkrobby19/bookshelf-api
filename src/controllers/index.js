@@ -82,10 +82,16 @@ const addBookHandler = (request, h) => {
 };
 
 const getAllBooksHandler = (request, h) => {
+  const seenBook = [];
+
+  books.forEach((book) => {
+    seenBook.push({ id: book.id, name: book.name, publisher: book.publisher });
+  });
+
   const response = h.response({
     status: "success",
     data: {
-      books,
+      books: seenBook,
     },
   });
   response.code(200);
