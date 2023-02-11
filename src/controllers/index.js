@@ -87,20 +87,18 @@ const getAllBooksHandler = (request, h) => {
   const { name, reading, finished } = request.query;
 
   if (name) {
-    filteredBooks = books.filter((book) =>
-      book.name.toLowerCase().includes(name.toLowerCase())
-    );
+    filteredBooks = books.filter((book) => book.name.toLowerCase().includes(name.toLowerCase()));
   }
 
   if (reading) {
     filteredBooks = books.filter(
-      (book) => Number(book.reading) === Number(reading)
+      (book) => Number(book.reading) === Number(reading),
     );
   }
 
   if (finished) {
     filteredBooks = books.filter(
-      (book) => Number(book.finished) === Number(finished)
+      (book) => Number(book.finished) === Number(finished),
     );
   }
 
